@@ -1,1 +1,367 @@
-<div class="bili-dyn-my-info"><div class="bili-dyn-my-info__header"><div class="avatar b-img--face b-img"><img src="http://i0.hdslb.com/bfs/face/2483c693494d78ed0cb3521f6a83271cfe529047.jpg@96w_96h" class="b-img__inner" loading="lazy" onload="bmgOnLoad(this)" onerror="bmgOnError(this)" data-onload="bmgCmptOnload" data-onerror="bmgCmptOnerror"></div> <div class="info"><div class="info__name" style="color: rgb(251, 114, 153);">大周的史莱姆</div> <div class="info__icon"><span class="info__label" style="background-color: rgb(251, 114, 153); color: rgb(255, 255, 255);">年度大会员</span> <span class="info__level" style="background-image: url(&quot;//i0.hdslb.com/bfs/static/stone-free/dyn-home/assets/ic_tag_grade4.svg&quot;);"></span></div></div></div> <div class="bili-dyn-my-info__content"><div class="bili-dyn-my-info__stats"><a href="//space.bilibili.com/1231489858/fans/follow" class="bili-dyn-my-info__stat__item"><div class="item-num">19</div> <div class="item-desc">关注</div></a> <a href="//space.bilibili.com/1231489858/fans/fans" class="bili-dyn-my-info__stat__item"><div class="item-num">4</div> <div class="item-desc">粉丝</div></a> <a href="//space.bilibili.com/1231489858/dynamic" class="bili-dyn-my-info__stat__item"><div class="item-num">2</div> <div class="item-desc">动态</div></a></div></div></div>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025信息技术暑假作业编程汇总</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 引入代码高亮库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#24292e',
+                        secondary: '#f6f8fa',
+                        accent: '#0366d6',
+                        code: '#f6f8fa',
+                        border: '#e1e4e8'
+                    },
+                    fontFamily: {
+                        mono: ['SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .scrollbar-thin {
+                scrollbar-width: thin;
+            }
+            .scrollbar-thin::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
+            }
+            .scrollbar-thin::-webkit-scrollbar-thumb {
+                background-color: rgba(156, 163, 175, 0.5);
+                border-radius: 3px;
+            }
+            .file-active {
+                @apply bg-white border-b-2 border-accent text-accent;
+            }
+            /* 代码自动换行关键样式 */
+            .code-wrap {
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-primary font-sans">
+    <!-- 顶部导航 -->
+    <header class="bg-primary text-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fa fa-github text-2xl"></i>
+                <h1 class="text-lg font-semibold">2025信息技术暑假作业编程汇总</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="hover:text-gray-300 transition-colors">
+                    <i class="fa fa-search"></i>
+                </button>
+                <button class="hover:text-gray-300 transition-colors">
+                    <i class="fa fa-star-o"></i>
+                </button>
+                <button class="hover:text-gray-300 transition-colors">
+                    <i class="fa fa-code-fork"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 文件路径导航 -->
+    <div class="bg-gray-100 border-b border-border px-4 py-2 text-sm text-gray-600">
+        <div class="container mx-auto">
+            <span>2025信息技术暑假作业编程汇总</span>
+            <i class="fa fa-chevron-right text-xs mx-1"></i>
+            <span id="current-file-name">Day01.py</span>
+        </div>
+    </div>
+
+    <!-- 主要内容区 -->
+    <main class="container mx-auto flex flex-col h-[calc(100vh-170px)]">
+        <!-- 代码展示区 -->
+        <div class="flex-1 bg-white border border-border rounded-t-lg overflow-hidden flex flex-col">
+            <!-- 代码头部 -->
+            <div class="bg-secondary px-4 py-2 border-b border-border flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa fa-file-code-o text-gray-500"></i>
+                    <span id="code-title">Day01.py</span>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="text-gray-500 hover:text-primary px-2 py-1 rounded hover:bg-gray-200 transition-colors" id="copy-btn">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                    <button class="text-gray-500 hover:text-primary px-2 py-1 rounded hover:bg-gray-200 transition-colors">
+                        <i class="fa fa-download"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 代码内容区 -->
+            <div class="flex-1 overflow-auto scrollbar-thin">
+                <table class="w-full">
+                    <tbody>
+                        <!-- 行号列 -->
+                        <tr>
+                            <td class="bg-secondary border-r border-border text-right pr-2 py-0.5 font-mono text-sm select-none min-w-[2.5rem] align-top">
+                                <pre id="line-numbers" class="m-0 p-0 leading-relaxed tabular-nums">1
+2</pre>
+                            </td>
+                            <!-- 代码列 -->
+                            <td class="py-0.5 align-top">
+                                <pre class="font-mono text-sm leading-relaxed m-0 p-0"><code id="code-content" class="language-python code-wrap">nlist=[6,2,5,5,4,5,6,3,7,6]
+print(f"共需火柴棍：{sum(nlist[int(d)] for d in input('请输入一个三位数：'))}")</code></pre>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- 文件切换栏 -->
+    <footer class="bg-secondary border-t border-border py-2 overflow-x-auto scrollbar-thin">
+        <div class="container mx-auto px-4 flex space-x-1 min-w-max">
+            <button class="file-btn file-active px-3 py-1 rounded text-sm font-medium transition-colors" data-file="Day01.py">Day01.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day02.py">Day02.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day03.py">Day03.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day04.py">Day04.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day05.py">Day05.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day06.py">Day06.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day07.py">Day07.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day08.py">Day08.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day09.py">Day09.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day10.py">Day10.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day11.py">Day11.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day12.py">Day12.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day13.py">Day13.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day14.py">Day14.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day15.py">Day15.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day16.py">Day16.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day17.py">Day17.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day18.py">Day18.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day19.py">Day19.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day20.py">Day20.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day21.py">Day21.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day22.py">Day22.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day23.py">Day23.py</button>
+            <button class="file-btn px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-200" data-file="Day24.py">Day24.py</button>
+        </div>
+    </footer>
+
+    <script>
+        // 初始化代码高亮
+        hljs.highlightAll();
+        
+        // 代码文件内容数据
+        const codeFiles = {
+            "Day01.py": `nlist=[6,2,5,5,4,5,6,3,7,6]
+print(f"共需火柴棍：{sum(nlist[int(d)] for d in input('请输入一个三位数：'))}")`,
+            "Day02.py": `l=int(input())
+print(f"{13 if l<=3 else 5.5+2.5*l if l<=10 else 3.75*l-7}元")`,
+            "Day03.py": `def tbase(n,f,d):
+    o,q=0,0
+    while n!="":
+        if "0"<=n[-1]<="9":
+            cn=int(n[-1])
+        else:
+            cn=ord(n[-1])-55
+        o+=(cn)*f**q
+        n=n[0:-1]
+        q+=1
+    res,m="","0123456789ABCDEF"
+    while o>0:
+        res=m[o%d]+res
+        o//=d
+    return res if res!="" else "0"
+print(tbase(input(),2,10))`,
+            "Day04.py": `t="庚辛壬癸甲乙丙丁戊己"
+d="申酉戌亥子丑寅卯辰巳午未"
+n=int(input())
+print(f"{t[n%10]}{d[n%12]}年")`,
+            "Day05.py": `def tbase(n,f,d):
+    o,q=0,0
+    while n!="":
+        if "0"<=n[-1]<="9":
+            cn=int(n[-1])
+        else:
+            cn=ord(n[-1])-55
+        o+=(cn)*f**q
+        n=n[0:-1]
+        q+=1
+    res,m="","0123456789ABCDEF"
+    while o>0:
+        res=m[o%d]+res
+        o//=d
+    return res if res!="" else "0"
+print(tbase(input(),10,2))`,
+            "Day06.py": `s=input()
+c,n=s[0],1
+for i in range(1,len(s)+1):
+    if i<len(s) and s[i]==s[i-1]:n+=1
+    else:
+        print(f"{n}{c}",end='')
+        if i<len(s):c,n=s[i],1`,
+            "Day07.py": `def tbase(n,f,d):
+    o,q=0,0
+    while n!="":
+        if "0"<=n[-1]<="9":
+            cn=int(n[-1])
+        else:
+            cn=ord(n[-1])-55
+        o+=(cn)*f**q
+        n=n[0:-1]
+        q+=1
+    res,m="","0123456789ABCDEF"
+    while o>0:
+        res=m[o%d]+res
+        o//=d
+    return res if res!="" else "0"
+print(tbase(input(),2,16))`,
+            "Day08.py": `from random import randint
+def p(a,b):
+    return"平局" if a==b else "电脑赢" if ((a,b)==(0,1)or(a,b)==(1,2)or(a,b)==(2,0)) else "玩家赢"
+while True:
+    com=randint(0,2);m={0:"石头",1:"剪刀",2:"布"};plr=int(input("你出{0(石头)|1(剪刀)|2(布)}"))
+    res=p(com,plr)
+    print(f"电脑出{m[com]}，你出{m[plr]}，{res}") `,
+            "Day09.py": `weight,price=int(input("行李重量(kg)")),int(input("经济舱全价票价格(元)"))
+print(f"{'免费' if weight<=20 else f'{round((weight-20)*price*0.015)}元'}")`,
+            "Day10.py": `def tbase(n,f,d):
+    o,q=0,0
+    while n!="":
+        if "0"<=n[-1]<="9":
+            cn=int(n[-1])
+        else:
+            cn=ord(n[-1])-55
+        o+=(cn)*f**q
+        n=n[0:-1]
+        q+=1
+    res,m="","0123456789ABCDEF"
+    while o>0:
+        res=m[o%d]+res
+        o//=d
+    return res if res!="" else "0"
+print(tbase(input(),16,2))`,
+            "Day11.py": `x,c=0.0001,0
+while x<=8844.86:
+    c+=1
+    x*=2
+print(f"需要折{c}次")`,
+            "Day12.py": `while True:
+    w,h=int(input("体重(kg)")),int(input("身高(cm)"))/100
+    if w==-1 or h==-1:break
+    print(f"BMI为{w/(h*h)}")`,
+            "Day13.py": `'''*该题目有歧义'''
+n=input("请输入一个四位整数")
+print(f"{'满足' if int(n[0])*int(n[1])+int(n[2])*int(n[3])==int(n[0])*int(n[1])*int(n[2])*int(n[3]) else '不满足'}")`,
+            "Day14.py": `f=False
+for i in range(10):
+    for j in range(10):
+        if (20806+i*1000+j*10)%37==0 and (20806+i*1000+j*10)%42==0:
+            print(f"密码为2{i}8{j}6")
+            f=True
+if not f:print("你的记忆不奏效了？怎么回事呢？")`,
+            "Day15.py": `from random import randint
+n=50;a=[randint(1,1000) for _ in range(n)]
+print(f"随机生成的列表{a=}\n所有数据平均值为{sum(a)/n}")`,
+            "Day16.py": `s=[["张三",94,93,95,91.5,92,90.5,93.5,91,90,88,89,90],["李四",88,87,86.5,82,90,88.5,84.5,89.5,85,91,90.5,88.5]]
+for i in s:print(f"{i[0]}的得分为{(sum(i[1:])-max(i[1:])-min(i[1:]))/(len(i[1:])-2)}")`,
+            "Day17.py": `l=[i for i in range(1000,10000) if sum(int(d)**4 for d in str(i))==i]
+print(*l)`,
+            "Day18.py": `s=input()
+ls,res=len(s),s[0]
+s*=2
+for i in range(2*ls):
+    l,r=i,i
+    while l-1>=0 and r+1<2*ls and r-l<=ls-2:
+        if s[l-1]==s[r+1]:
+            l,r=l-1,r+1
+            if r-l+1>len(res) and r-l+1<=ls:
+                res=s[l:r+1]
+        else:break
+    l,r=i,i+1
+    while r-l<=ls-2 and l-1>=0 and r+1<2*ls:
+        if s[l-1]==s[r+1]:
+            l,r=l-1,r+1
+            if r-l+1>len(res) and r-l+1<=ls:
+                res=s[l:r+1]
+        else:break
+print(res)`,
+            "Day19.py": `is_prime=lambda n:n>1 and all(n%i for i in range(2,int(n**0.5+1)))
+print(f"{'是质数！' if is_prime(int(input())) else '不是质数！'}")`,
+            "Day20.py": `is_prime=lambda n:n>1 and all(n%i for i in range(2,int(n**0.5+1)))
+print(*[i for i in range(100,1000) if is_prime(i)])`,
+            "Day21.py": `a,b=map(int,input("请输入两个数（用空格分隔）：").split())
+print(f"两数的四则运算结果为：\\n{a} + {b} = {a+b}\\n{a} - {b} = {a-b}\\n{a} * {b} = {a*b}\\n{'输入数据有误！' if not b else f'{a} / {b} = {a/b}'}")`,
+            "Day22.py": `a,b,c=map(int,input("请输入系数a,b,c的值：").split())
+p=lambda a,b,c:b*b-4*a*c
+print(f"{'无解' if p(a,b,c)<0 else f'x1=x2={(-b+p(a,b,c)**0.5)/(2*a)}'if p(a,b,c)==0 else f'x1={(-b+p(a,b,c)**0.5)/(2*a)},x2={(-b-p(a,b,c)**0.5)/(2*a)}'}")`,
+            "Day23.py": `s,a,b=0,1,2
+for i in range(int(input())):s+=a/b;a,b=b,a+b
+print(s)`,
+            "Day24.py": `stra,strb=input(),input()
+while stra.find(strb)!=-1:
+    st=stra.find(strb)
+    stra=stra[:st]+stra[st+len(strb):]
+print(stra)`
+        };
+
+        // 获取DOM元素
+        const fileButtons = document.querySelectorAll('.file-btn');
+        const codeContent = document.getElementById('code-content');
+        const lineNumbers = document.getElementById('line-numbers');
+        const codeTitle = document.getElementById('code-title');
+        const currentFileName = document.getElementById('current-file-name');
+        const copyBtn = document.getElementById('copy-btn');
+
+        // 为每个文件按钮添加点击事件
+        fileButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有按钮的活跃状态
+                fileButtons.forEach(btn => btn.classList.remove('file-active'));
+                // 添加当前按钮的活跃状态
+                button.classList.add('file-active');
+                
+                // 获取文件名和代码内容
+                const fileName = button.getAttribute('data-file');
+                const code = codeFiles[fileName];
+                
+                // 更新显示
+                codeContent.textContent = code;
+                codeTitle.textContent = fileName;
+                currentFileName.textContent = fileName;
+                
+                // 更新行号
+                const lines = code.split('\n').length;
+                lineNumbers.textContent = Array.from({length: lines}, (_, i) => i + 1).join('\n');
+                
+                // 重新应用代码高亮
+                hljs.highlightElement(codeContent);
+            });
+        });
+
+        // 复制按钮功能
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = codeContent.textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalHTML = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fa fa-check"></i> 已复制';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalHTML;
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
